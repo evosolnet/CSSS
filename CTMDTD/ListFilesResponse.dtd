@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+Copyright (C) 2003 Omgeo LLC.  All rights reserved.
+This publication (including, without limitation, any text, image, logo, compilation, code and/or design)
+is proprietary and protected by copyright, and is for exclusive use by users authorized by Omgeo.  If
+you received this publication from Omgeo by any electronic medium, you are granted a limited, non-
+exclusive, non-transferable, non-sublicensable and freely revocable license to download and store this
+publication on your computer and to print copies for your own use.  Except if and as authorized by the
+foregoing, no part of this publication may be printed, stored, reproduced, copied, altered, modified,
+posted, distributed, transmitted, displayed, published, sold, licensed or used in any form or by any
+means, without Omgeo's prior written approval. Omgeo has attempted to ensure the accuracy, timeliness
+and completeness of this publication but makes no warranties and assumes no responsibility relating
+thereto.  The content of this publication may change from time to time without notice; readers are
+advised to refer to the latest version available.  For the latest version of this publication, readers
+may contact the Omgeo Customer Support Center (1-877-OMGEO-25). Omgeo(sm) is a service mark exclusively
+owned by Omgeo LLC, 22 Thomson Place, Boston, MA 02210, in the United States and elsewhere.  Other
+product or company names appearing in this publication are trade or service marks of their respective
+owners.
+Publication Date: 2003-11-03
+-->
+<!-- DTD for CTM Message:ListFilesResponse Version:1.3 -->
+<!-- For Internal Use Only -->
+<!ELEMENT CTM_Message (ListFilesResponse)>
+<!ELEMENT ListFilesResponse ( ResponseHeader, ListFilesResponseBody )  >
+	<!ELEMENT ResponseHeader ( ProtocolVersion, OriginatorOfMessage, RecipientOfMessage, EchoUserID?, EchoSendersMessageReference?, EchoDateTimeOfSentMessage? )  >
+		<!ELEMENT ProtocolVersion (#PCDATA)  >
+		<!ATTLIST ProtocolVersion
+			Syntax      CDATA   #FIXED  "4!c">
+		<!ELEMENT OriginatorOfMessage ( PartyRole, PartyType, PartyValue )  >
+			<!ELEMENT PartyRole (#PCDATA)  >
+			<!ATTLIST PartyRole
+				Syntax      CDATA   #FIXED  "4!c">
+			<!ELEMENT PartyType (#PCDATA)  >
+			<!ATTLIST PartyType
+				Syntax      CDATA   #FIXED  "35z">
+			<!ELEMENT PartyValue (#PCDATA)  >
+			<!ATTLIST PartyValue
+				Syntax      CDATA   #FIXED  "34z or 4!a2!a2!c[3!c]">
+		<!ELEMENT RecipientOfMessage ( PartyRole, PartyType, PartyValue )  >
+		<!ELEMENT EchoUserID (#PCDATA)  >
+		<!ATTLIST EchoUserID
+			Syntax      CDATA   #FIXED  "32z">
+		<!ELEMENT EchoSendersMessageReference (#PCDATA)  >
+		<!ATTLIST EchoSendersMessageReference
+			Syntax      CDATA   #FIXED  "16z">
+		<!ELEMENT EchoDateTimeOfSentMessage (#PCDATA)  >
+		<!ATTLIST EchoDateTimeOfSentMessage
+			Syntax      CDATA   #FIXED  "8!n6!n">
+	<!ELEMENT ListFilesResponseBody ( RecordsReturnedCount, MoreFlag?, FileMetaData* )  >
+		<!ELEMENT RecordsReturnedCount (#PCDATA)  >
+		<!ATTLIST RecordsReturnedCount
+			Syntax      CDATA   #FIXED  "3!n">
+		<!ELEMENT MoreFlag (#PCDATA)  >
+		<!ATTLIST MoreFlag
+			Syntax      CDATA   #FIXED  "1!a">
+		<!ELEMENT FileMetaData ( FileSubmitter, FileApplication, FileFolder, FileName, FileChecksum, FileContentLength, FileContentType, FileContentEncoding, IsFileMarkedAsRead, ClientStatus, CreateDateTimeExt, LastUpdateDateTimeExt, UserId?, LoginId?, LoginFirstName, LoginLastName, LoginOrganization+ )  >
+			<!ELEMENT FileSubmitter ( PartyType, PartyValue )  >
+			<!ELEMENT FileApplication (#PCDATA)  >
+			<!ATTLIST FileApplication
+				Syntax      CDATA   #FIXED  "4!c">
+			<!ELEMENT FileFolder (#PCDATA)  >
+			<!ATTLIST FileFolder
+				Syntax      CDATA   #FIXED  "4!c">
+			<!ELEMENT FileName (#PCDATA)  >
+			<!ATTLIST FileName
+				Syntax      CDATA   #FIXED  "128z">
+			<!ELEMENT FileChecksum (#PCDATA)  >
+			<!ATTLIST FileChecksum
+				Syntax      CDATA   #FIXED  "24z">
+			<!ELEMENT FileContentLength (#PCDATA)  >
+			<!ATTLIST FileContentLength
+				Syntax      CDATA   #FIXED  "10n">
+			<!ELEMENT FileContentType (#PCDATA)  >
+			<!ATTLIST FileContentType
+				Syntax      CDATA   #FIXED  "128z">
+			<!ELEMENT FileContentEncoding (#PCDATA)  >
+			<!ATTLIST FileContentEncoding
+				Syntax      CDATA   #FIXED  "9z">
+			<!ELEMENT IsFileMarkedAsRead (#PCDATA)  >
+			<!ATTLIST IsFileMarkedAsRead
+				Syntax      CDATA   #FIXED  "1!z">
+			<!ELEMENT ClientStatus (#PCDATA)  >
+			<!ATTLIST ClientStatus
+				Syntax      CDATA   #FIXED  "20z">
+			<!ELEMENT CreateDateTimeExt (#PCDATA)  >
+			<!ATTLIST CreateDateTimeExt
+				Syntax      CDATA   #FIXED  "8!n6!n3!n">
+			<!ELEMENT LastUpdateDateTimeExt (#PCDATA)  >
+			<!ATTLIST LastUpdateDateTimeExt
+				Syntax      CDATA   #FIXED  "8!n6!n3!n">
+			<!ELEMENT UserId (#PCDATA)  >
+			<!ATTLIST UserId
+				Syntax      CDATA   #FIXED  "32z">
+			<!ELEMENT LoginId (#PCDATA)  >
+			<!ATTLIST LoginId
+				Syntax      CDATA   #FIXED  "32z">
+			<!ELEMENT LoginFirstName (#PCDATA)  >
+			<!ATTLIST LoginFirstName
+				Syntax      CDATA   #FIXED  "60z">
+			<!ELEMENT LoginLastName (#PCDATA)  >
+			<!ATTLIST LoginLastName
+				Syntax      CDATA   #FIXED  "60z">
+			<!ELEMENT LoginOrganization (#PCDATA)  >
+			<!ATTLIST LoginOrganization
+				Syntax      CDATA   #FIXED  "35z">

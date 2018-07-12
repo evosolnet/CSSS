@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration  xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="null">
+  <appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param  name="file" value="./logs/SecureCredentialInfo.log"/>
+    <!-- The date pattern '.' yyyy-MM implies roll over at the beginning of each month  -->
+    <param name="DatePattern" value="'.'yyyy-MM"/> 
+    <param name="Threshold" value="DEBUG"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern"	value="%d{ISO8601} %-5p  [%t] %20.30c{1} %x - %m %n"/>
+    </layout>
+  </appender>			     
+  <logger name="com.omgeo.security">
+    <level value="DEBUG"/> 
+    <appender-ref ref="fileAppender" />
+  </logger>			     
+  </log4j:configuration>

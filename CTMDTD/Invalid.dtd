@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+Copyright (C) 2006 Omgeo LLC.  All rights reserved.
+This publication (including, without limitation, any text, image, logo, compilation, code and/or design)
+is proprietary and protected by copyright, and is for exclusive use by users authorized by Omgeo.  If
+you received this publication from Omgeo by any electronic medium, you are granted a limited, non-
+exclusive, non-transferable, non-sublicensable and freely revocable license to download and store this
+publication on your computer and to print copies for your own use.  Except if and as authorized by the
+foregoing, no part of this publication may be printed, stored, reproduced, copied, altered, modified,
+posted, distributed, transmitted, displayed, published, sold, licensed or used in any form or by any
+means, without Omgeo's prior written approval. Omgeo has attempted to ensure the accuracy, timeliness
+and completeness of this publication but makes no warranties and assumes no responsibility relating
+thereto.  The content of this publication may change from time to time without notice; readers are
+advised to refer to the latest version available.  For the latest version of this publication, readers
+may contact the Omgeo Customer Support Center (1-877-OMGEO-25). Omgeo(sm) is a service mark exclusively
+owned by Omgeo LLC, 22 Thomson Place, Boston, MA 02210, in the United States and elsewhere.  Other
+product or company names appearing in this publication are trade or service marks of their respective
+owners.
+
+Publication Date: 2006-04-10
+
+-->
+<!-- DTD for CTM Message:Invalid Version:1.3 -->
+<!ELEMENT CTM_Message (Invalid)>
+<!ELEMENT Invalid ( InvalidHeader, InvalidBody )  >
+	<!ELEMENT InvalidHeader ( ProtocolVersion, OriginatorOfMessage )  >
+		<!ELEMENT ProtocolVersion (#PCDATA)  >
+		<!ATTLIST ProtocolVersion
+			Syntax      CDATA   #FIXED  "4!c">
+		<!ELEMENT OriginatorOfMessage ( PartyRole, PartyType, PartyValue )  >
+			<!ELEMENT PartyRole (#PCDATA)  >
+			<!ATTLIST PartyRole
+				Syntax      CDATA   #FIXED  "4!c">
+			<!ELEMENT PartyType (#PCDATA)  >
+			<!ATTLIST PartyType
+				Syntax      CDATA   #FIXED  "35z">
+			<!ELEMENT PartyValue (#PCDATA)  >
+			<!ATTLIST PartyValue
+				Syntax      CDATA   #FIXED  "34z or 4!a2!a2!c[3!c]">
+	<!ELEMENT InvalidBody ( SynchError+, OriginalMessage )  >
+		<!ELEMENT SynchError ( ErrorId, ErrorKey, ErrorText, ErrorParameter*, ErrorURL? )  >
+			<!ELEMENT ErrorId (#PCDATA)  >
+			<!ATTLIST ErrorId
+				Syntax      CDATA   #FIXED  "16z">
+			<!ELEMENT ErrorKey (#PCDATA)  >
+			<!ATTLIST ErrorKey
+				Syntax      CDATA   #FIXED  "35z">
+			<!ELEMENT ErrorText (#PCDATA)  >
+			<!ATTLIST ErrorText
+				Syntax      CDATA   #FIXED  "255z">
+			<!ELEMENT ErrorParameter ( ErrorParameterType, ErrorParameterValue, ErrorParameterURL? )  >
+				<!ELEMENT ErrorParameterType (#PCDATA)  >
+				<!ATTLIST ErrorParameterType
+					Syntax      CDATA   #FIXED  "16z">
+				<!ELEMENT ErrorParameterValue (#PCDATA)  >
+				<!ATTLIST ErrorParameterValue
+					Syntax      CDATA   #FIXED  "2100z">
+				<!ELEMENT ErrorParameterURL (#PCDATA)  >
+				<!ATTLIST ErrorParameterURL
+					Syntax      CDATA   #FIXED  "255z">
+			<!ELEMENT ErrorURL (#PCDATA)  >
+			<!ATTLIST ErrorURL
+				Syntax      CDATA   #FIXED  "255z">
+		<!ELEMENT OriginalMessage (#PCDATA)  >
+		<!ATTLIST OriginalMessage
+			Syntax      CDATA   #FIXED  "16384z">
